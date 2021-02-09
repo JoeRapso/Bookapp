@@ -1,0 +1,17 @@
+{% extends "layout2.html" %}
+
+{% block body %}
+    <h1>Welcome, please go ahead and search for your book below.</h1>
+    <form action="{{ url_for('books') }}" method="post">
+        <div class="form-group w-50">
+          <input type="search" name="query" class="form-control" id="search" placeholder="Type in Author or ISBN and press Enter">
+        </div>
+    </form>
+
+    <h2>Books</h2>
+    <ul>
+        {% for books in books %}
+            <li>{{ books.title }}, {{ books.author }}, {{ books.year }}, {{ books.isbn }}</li>
+        {% endfor %}
+    </ul>
+{% endblock %}
